@@ -1,18 +1,25 @@
 name: Cypress Tests
 
-on: 
- push:
-   branches:
-     - master
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
 jobs:
   cypress:
     run-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       - name: Install Dep
         uses: npm install
+
       - name: Run Cypress test
         uses: npm run test:e2e         
