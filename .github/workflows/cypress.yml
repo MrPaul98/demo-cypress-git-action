@@ -16,9 +16,9 @@ jobs:
 
       - name: Install Dep
         run: npm install
-        
+
       - name: Build app
-        run: npm build  
+        run: npm run build  
 
       - name: Run Cypress test
         run: npm run test:e2e         
