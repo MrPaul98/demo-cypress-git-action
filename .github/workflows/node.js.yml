@@ -8,7 +8,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-    
+
 jobs:
   cypress:
     runs-on: ubuntu-latest
@@ -26,7 +26,6 @@ jobs:
       - name: Run Cypress test
         run: npm run test:e2e 
 
-jobs:
   build:
 
     runs-on: ubuntu-latest
